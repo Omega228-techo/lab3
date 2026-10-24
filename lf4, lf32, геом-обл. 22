@@ -1,1 +1,65 @@
+(№ lf1)
 
+#include <iostream>
+int main() {
+    int a = 5;
+    int b = 3;
+    int c = 9;
+    std::cout << "Числа: " << a << ", " << b << ", " << c << std::endl;
+    int count = 0;
+    if (a > 0) count++;
+    if (b > 0) count++;
+    if (c > 0) count++;
+    std::cout << "Кількість додатних чисел: " << count << std::endl;
+    return 0;
+}
+
+(№ lf32)
+
+#include <iostream>
+int main() {
+    // Підставляємо значення
+    double x = 4; 
+    std::cout << "Початкове значення x = " << x << std::endl;
+    double h_val;
+    if (x < 0) {
+        h_val = 2 * x;
+    } else if (x >= 0 && x < 3) {
+        h_val = x;
+    } else { // x >= 3
+        h_val = 6 - x;
+    }
+    int h = static_cast<int>(h_val);
+    std::cout << "Значення h(x) = " << h << std::endl;
+    return 0;
+}
+
+(геом-обл. 22)
+
+#include <iostream>
+int main() {
+    double r = 3.0; // Радіус кола
+    double a = 8.0; // Сторона квадрата
+    double x = 2.0; // Координата X
+    double y = 1.5; // Координата Y
+    std::cout << "Параметри: r = " << r << ", a = " << a << std::endl;
+    std::cout << "Точка: (" << x << ", " << y << ")" << std::endl;
+    bool in_square = (x >= -a/2.0 && x <= a/2.0 && y >= -a/2.0 && y <= a/2.0);
+    bool in_circle = (x*x + y*y <= r*r);
+    bool is_inside_green = false;
+    if (in_square) {
+        if (in_circle) {
+            if (x >= 0 && y >= 0) is_inside_green = true;
+        } else {
+            if (x >= 0 && y >= 0 && y <= x) is_inside_green = true;
+            else if (x <= 0 && y >= 0 && y >= -x) is_inside_green = true;
+            else if (x <= 0 && y <= 0 && y >= x) is_inside_green = true;
+        }
+    }
+    if (is_inside_green) {
+        std::cout << "Результат: точка потрапляє в зелену область" << std::endl;
+    } else {
+        std::cout << "Результат: точка не потрапляє в зелену область" << std::endl;
+    }
+    return 0;
+}
